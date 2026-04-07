@@ -78,14 +78,6 @@ System-Design-Interview-Prep/
         ├── CircuitBreaker.java
         └── ...
 ```
-
-## Topics Covered 
-
-| #  | Topic                  | Summary                                                                                                      |
-|----|------------------------|--------------------------------------------------------------------------------------------------------------|
-| 1  | Design A Rate Limiter  | Token Bucket, Sliding Window Log, Fixed Window Counter; client- vs server-side; Redis-based distributed impl |
-| 2  | Design A URL Shortener | Register short url and supports redirection                                                                  |
-(In Progress)
 ## Contributing
 
 Contributions are welcome! You can help by:

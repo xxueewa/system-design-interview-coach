@@ -6,6 +6,10 @@ A hands-on interview preparation toolkit combining a built-in system design know
 
 ## Features
 
+https://github.com/user-attachments/assets/70c4516f-0972-407b-9006-5f40845775a0
+
+
+
 - AI-powered mock system design interviews via Claude Code skill
 - Structured concept reference library (CAP theorem, isolation levels, locking, and more)
 - Full reference answer walkthroughs for common interview questions

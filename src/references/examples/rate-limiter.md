@@ -39,7 +39,7 @@ Client → API Gateway → Rate Limiter Middleware → Upstream Service
 | Token Bucket | Smooth bursting | Slightly complex |
 | Leaky Bucket | Strict output rate | No burst tolerance |
 
-**Recommended for L4**: Token Bucket or Sliding Window Counter — balance simplicity and accuracy.
+**Recommended**: Token Bucket or Sliding Window Counter — balance simplicity and accuracy.
 
 ## Data Model (Redis)
 
@@ -113,7 +113,7 @@ a reliability feature, not a security gate — false rejections hurt more than o
 | Token Bucket over Fixed Window | Avoids burst at window boundaries |
 | AP over CP | Occasional over-limit is better than false 429s |
 
-## What L4 Candidates Often Miss
+## What Mid-to-Senior Candidates Often Miss
 
 - Handling Redis failure (circuit breaker to allow-all)
 - Race conditions in read-then-write without atomic operations

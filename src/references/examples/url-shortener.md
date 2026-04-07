@@ -53,7 +53,7 @@ encode(id):
 - Deterministic (same URL → same code); easy deduplication
 - Rare but possible collisions still need handling
 
-**Recommended for L4**: Option A with a distributed ID generator (Snowflake) to avoid sequential
+**Recommended**: Option A with a distributed ID generator (Snowflake) to avoid sequential
 guessing while keeping collision-free generation.
 
 ## Data Model
@@ -126,7 +126,7 @@ latency. Use 302 with CDN caching for a balance.
 | Kafka for click events | Decouples analytics from the hot redirect path |
 | CDN caching | Offloads redirect traffic for popular links |
 
-## What L4 Candidates Often Miss
+## What Mid-to-Senior Candidates Often Miss
 
 - Not discussing 301 vs 302 trade-off
 - Forgetting cache invalidation when a URL is deleted or expired

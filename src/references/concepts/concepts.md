@@ -1,8 +1,26 @@
+## CAP theorem
+CAP stands for Consistency, Availability and Partition tolerance.
+Any distributed system can provide at most two of the following three guarantees. 
+### 1. Consistency
+Every read receives the most recent write or an error. Consistency means that all clients 
+see the same data at the same time, no matter which node they connect to.For this to happen, 
+whenever data is written to one node, it must be instantly forwarded or replicated to all 
+the other nodes in the system before the write is deemed ‘successful’.
 
+### 2. Availability
+Every request received by a non-failing node in the system must result in a response, 
+without the guarantee that it contains the most recent version of the data
 
-## Failure Modes in Highly Available System 
+### 3. Partition Tolerance
+The system continues to operate despite an arbitrary number of messages 
+being dropped (or delayed) by the network between nodes.
+When a network partition failure happens, it must be decided whether to do one of the following:
+1. cancel the operation and thus decrease the availability but ensure consistency.
+2. proceed with the operation and thus provide availability but result in inconsistency.
 
-## Solutions
+Therefore, the guarantee combination normally are AP or CP.
+
+## Failure Modes in Highly Available System
 ### 1. Circuit Breaker
 The Circuit Breaker pattern helps handle faults that might take varying amounts of time to 
 recover from when an application connects to a remote service or resource. A circuit breaker 

@@ -16,9 +16,9 @@ import java.util.logging.Logger;
  *  6. CyclicBarrier    – reusable barrier: all threads must arrive before any proceeds
  *  7. BlockingQueue    – producer/consumer channel: thread-safe hand-off with built-in blocking
  */
-public class Main {
+public class InterThreadCommunication {
 
-    private static final Logger logger = Logger.getLogger(Main.class.getName());
+    private static final Logger logger = Logger.getLogger(InterThreadCommunication.class.getName());
 
     // -------------------------------------------------------------------------
     // 1. Semaphore

@@ -70,7 +70,7 @@ class DiningPhilosophers {
         - c specifies the operation: {1 : pick, 2 : put, 3 : eat}.
          */
 
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             int philosopher = i % 5;
             threadPool.submit(() -> {
                 Runnable pickLeftFork = () -> System.out.println(Arrays.toString(new int[]{philosopher, 1, 1}));

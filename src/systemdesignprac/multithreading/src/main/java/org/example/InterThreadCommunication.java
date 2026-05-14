@@ -174,11 +174,13 @@ public class InterThreadCommunication {
         p.join();  c.join();
     }
 
-    // -------------------------------------------------------------------------
-    // 5. CountDownLatch
-    //    One-shot: a set of threads waits until N events have occurred.
-    //    Cannot be reset. Use case: wait for all workers to finish before aggregating.
-    // -------------------------------------------------------------------------
+    /**
+     * 5. CountDownLatch
+     * One-shot: a set of threads waits until N events have occurred.
+     * Cannot be reset. Use case: wait for all workers to finish before aggregating.
+     * app startup, parallel initialization, waiting for all tasks to finish.
+     * @throws InterruptedException
+     */
     static void demoCountDownLatch() throws InterruptedException {
         logger.info("\n===== 5. COUNT DOWN LATCH =====");
         int workers = 4;
@@ -206,6 +208,7 @@ public class InterThreadCommunication {
     // 6. CyclicBarrier
     //    Reusable: all threads must reach the barrier before any continues.
     //    Use case: parallel phases (e.g. map → barrier → reduce → barrier → ...).
+    //    for multi-phase parallel algorithms where threads must synchronize between phases (e.g. parallel matrix computation).
     // -------------------------------------------------------------------------
     static void demoCyclicBarrier() throws InterruptedException {
         logger.info("\n===== 6. CYCLIC BARRIER =====");

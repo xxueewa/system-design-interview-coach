@@ -100,3 +100,35 @@ public class CustomizedBlockingQueue {
         System.out.println("所有任务完成。");
     }
 }
+
+/**
+ * 1. Difference between notifyAll() and notify()
+ * notify picks one thread from the wait set
+ * notifyAll wakes up all the threads
+ *
+ * notify could cause deadlock problem in this scenario
+ *   Concrete deadlock scenario (capacity = 1):
+ *
+ *   P1 puts one element and the queue is full, now P2 starts waiting.
+ *   C1 take the element from the queue, now C2 starts waiting
+ *
+ *   Wait set: {C2, P2}
+ *
+ * . P1 finishes put(), calls notify() -> picks P1 -> P1 continues to sleep
+ *   C1 finishes take(), calls notify() → JVM picks C2 (wrong type)
+ *
+ *   C2 wakes up, sees queue is empty, calls wait() again
+ *
+ *   Wait set: {P2, C2}
+ *
+ *   Nobody else is running. P2 waits forever. Deadlock.
+ *
+ *
+ *   Performance tradeOff:  notifyAll() causes unnecessary wakeups and lock contention
+ *   use separate condition objects are better fix
+ *
+ *   Condition notFull  = lock.newCondition();  // put() waits here, notFull.await(), notEmpty.signalAll();
+ *   Condition notEmpty = lock.newCondition();  // take() waits here
+ *
+ *
+ */
